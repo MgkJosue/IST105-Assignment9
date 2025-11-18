@@ -1,0 +1,19 @@
+{% extends 'dnacenter/base.html' %}
+{% block content %}
+<h2>🔑 Authentication</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Get Authentication Token</button>
+</form>
+
+{% if success %}
+<div class="success" style="margin-top: 20px;">✅ Authentication successful!</div>
+<div class="token-box" style="margin-top: 20px;">
+    <strong>Token:</strong><br>{{ token }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="error" style="margin-top: 20px;">❌ Error: {{ error }}</div>
+{% endif %}
+{% endblock %}

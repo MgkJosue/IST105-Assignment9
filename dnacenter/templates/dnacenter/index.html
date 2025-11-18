@@ -1,0 +1,33 @@
+{% extends 'dnacenter/base.html' %}
+{% block content %}
+<div style="text-align: center; padding: 50px 0;">
+    <h2>Welcome to DNA Center Manager</h2>
+    <p style="color: #666; margin: 20px 0;">Manage your Cisco network devices</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px;">
+        <div style="padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h3>🔑 Authenticate</h3>
+            <p>Get authentication token</p>
+            <a href="{% url 'dnacenter:authenticate' %}">
+                <button style="margin-top: 15px;">Go</button>
+            </a>
+        </div>
+        
+        <div style="padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h3>📡 View Devices</h3>
+            <p>List all network devices</p>
+            <a href="{% url 'dnacenter:list_devices' %}">
+                <button style="margin-top: 15px;">Go</button>
+            </a>
+        </div>
+        
+        <div style="padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h3>🔌 Device Interfaces</h3>
+            <p>View interfaces by IP</p>
+            <a href="{% url 'dnacenter:device_interfaces' %}">
+                <button style="margin-top: 15px;">Go</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
