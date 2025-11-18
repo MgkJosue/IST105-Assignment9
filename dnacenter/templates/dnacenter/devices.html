@@ -1,0 +1,33 @@
+{% extends 'dnacenter/base.html' %}
+{% block content %}
+<h2>📡 Network Devices</h2>
+
+{% if error %}
+<div class="error">❌ Error: {{ error }}</div>
+{% elif devices %}
+<table>
+    <thead>
+        <tr>
+            <th>Hostname</th>
+            <th>IP Address</th>
+            <th>Platform</th>
+            <th>Status</th>
+            <th>Serial Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for device in devices %}
+        <tr>
+            <td>{{ device.hostname|default:"N/A" }}</td>
+            <td>{{ device.managementIpAddress|default:"N/A" }}</td>
+            <td>{{ device.platformId|default:"N/A" }}</td>
+            <td>{{ device.reachabilityStatus|default:"N/A" }}</td>
+            <td>{{ device.serialNumber|default:"N/A" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No devices found.</p>
+{% endif %}
+{% endblock %}
